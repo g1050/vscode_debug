@@ -1,0 +1,48 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 附加",
+            "type": "cppdbg",
+            "request": "attach",
+            // "program": "/home/deepglint/Applications/com.deepglint.deh5.deh5bin.app.dpk.mnt/DEH5Bin",
+            "program": "/home/deepglint/Applications/com.deepglint.deh5.deh5web.app.dpk.mnt/DEH5Web",
+            // "cwd": "/home/deepglint/Applications/com.deepglint.deh5.deh5web.app.dpk.mnt",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "sourceFileMap": {
+                "/home/workspace/third_party/vega": "/home/deepglint/host/cz/xkgao/vega"
+            },
+            // "pipeTransport": {
+            //     "debuggerPath": "/usr/bin/gdb",
+            //     "pipeProgram": "ssh",
+            //     "pipeArgs": [
+            //         "your_user@your_server_ip",
+            //         "docker exec -i debug-container" // 直接在容器内执行
+            //     ]
+            // },
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "logging": {
+                "engineLogging": true,
+                "trace": true,
+                "traceResponse": true,
+                "exceptions": true, // 增加异常捕获
+                "programOutput": true // 记录程序输出
+            }
+        }
+    ]
+}
